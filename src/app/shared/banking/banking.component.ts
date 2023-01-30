@@ -22,17 +22,29 @@ get getCarteira(): number {
   return this.carteira
 }
 
-  public setSacar(valor: string): number {
+  public setSacar(valor: string): number | undefined {
     const sacar = Number(valor);
+
+    if(isNaN(sacar) || this.poupanca < sacar) {
+    return;
+  }
+
+    this.poupanca -= sacar
+
     console.log(sacar);
-    return sacar
+    return this.carteira += sacar
 
   }
 
-  public setDepositar(valor: string): number {
+  public setDepositar(valor: string): number | undefined {
     const depositar = Number(valor);
+    if(isNaN(depositar) || this.carteira < depositar) {
+    return
+  }
+
     console.log(depositar);
-    return depositar
+    this.carteira -= depositar;
+    return this.poupanca += depositar;
 
   }
 
