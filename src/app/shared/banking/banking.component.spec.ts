@@ -37,7 +37,7 @@ describe('BankingComponent', () => {
     expect(component.getCarteira).toEqual(60);
   })
 
-  it('(U) setSacar(): should not receive a string or a value that be bigger than poupanca', () => {
+  it('(U) setSacar(): should not receive a string or a value that is bigger than poupanca', () => {
     expect(component.setSacar('string')).not.toBeTruthy();
     expect(component.setSacar('100')).not.toBeTruthy();
 
@@ -53,12 +53,28 @@ describe('BankingComponent', () => {
     expect(component.getCarteira).toEqual(40);
   })
 
-  it('(U) setDepositar(): should not receive a string or a value that be bigger than carteira', () => {
+  it('(U) setDepositar(): should not receive a string or a value that is bigger than carteira', () => {
     expect(component.setSacar('string')).not.toBeTruthy();
     expect(component.setSacar('100')).not.toBeTruthy();
 
     expect(component.getPoupanca).toEqual(10);
     expect(component.getCarteira).toEqual(50);
+  })
+
+  it('(I) setDepositar(): should transfer the value of carteira from poupanca', () => {
+    let el = fixture.debugElement.nativeElement;
+
+    el.querySelector('#input-depositar').value = '10'
+    el.querySelector('#depositar').click();
+
+    fixture.detectChanges();
+
+    expect(el.querySelector('#get-poupanca').textContent).toEqual(20)
+
+
+    expect(component.getPoupanca).toEqual(20);
+    expect(component.getCarteira).toEqual(40);
+
   })
 });
 
