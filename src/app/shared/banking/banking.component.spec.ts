@@ -26,7 +26,7 @@ describe('BankingComponent', () => {
   })
 
   it('(U) getCarteira(): carteira should have 50', () => {
-    expect(component.getPoupanca).toEqual(50);
+    expect(component.getCarteira).toEqual(50);
   })
 
   it('(U) setSacar(): should transfer the value of poupanca from carteira', () => {
@@ -37,6 +37,14 @@ describe('BankingComponent', () => {
     expect(component.getCarteira).toEqual(60);
   })
 
+  it('(U) setSacar(): should not receive a string or a value that be bigger than poupanca', () => {
+    expect(component.setSacar('string')).not.toBeTruthy();
+    expect(component.setSacar('100')).not.toBeTruthy();
+
+    expect(component.getPoupanca).toEqual(10);
+    expect(component.getCarteira).toEqual(50);
+  })
+
   it('(U) setDepositar(): should transfer the value of carteira from poupanca', () => {
     component.setDepositar('10');
     fixture.detectChanges();
@@ -44,4 +52,16 @@ describe('BankingComponent', () => {
     expect(component.getPoupanca).toEqual(20);
     expect(component.getCarteira).toEqual(40);
   })
+
+  it('(U) setDepositar(): should not receive a string or a value that be bigger than carteira', () => {
+    expect(component.setSacar('string')).not.toBeTruthy();
+    expect(component.setSacar('100')).not.toBeTruthy();
+
+    expect(component.getPoupanca).toEqual(10);
+    expect(component.getCarteira).toEqual(50);
+  })
 });
+
+// Para a cobertura, há duas maneiras:
+// ng test --code-coverage
+// Indo até o componente html dentro da pasta coverage e usando o go live
