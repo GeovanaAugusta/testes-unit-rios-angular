@@ -33,3 +33,9 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span')?.textContent).toContain('testes-unitarios app is running!');
   });
 });
+
+it(`should return a sum of two numbers`, () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const app = fixture.componentInstance;
+  expect(app.soma(1, 1)).toEqual(2);
+});
