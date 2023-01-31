@@ -15,7 +15,7 @@
 </p>
 
 <p>
-  Carteira: R$ {{ getCarteira }}
+  Carteira: R$ <span id="get-carteira">{{ getCarteira }}</span>
   <br>
   <input id="input-depositar" type="text" #depositar>
   <button id="depositar" (click)="setDepositar(depositar.value)">Depositar</button>
