@@ -83,7 +83,7 @@ describe('BankingComponent', () => {
 
     fixture.detectChanges();
 
-    expect(el.querySelector('#get-poupanca').textContent).toEqual(' 20 ')
+    expect(el.querySelector('#get-poupanca').textContent.trim()).toEqual('20')
 
     expect(component.getCarteira).toEqual(40);
 
