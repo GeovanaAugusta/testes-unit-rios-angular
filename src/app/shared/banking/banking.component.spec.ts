@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BankingComponent } from './banking.component';
+import { ListComponent } from '../investiments/list/list.component';
 
 describe('BankingComponent', () => {
   let component: BankingComponent;
@@ -8,7 +9,8 @@ describe('BankingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BankingComponent ]
+      // Sempre lembrar de que caso use um componente dentro de outro, é necessário declarar aqui ou dá erro de unknown component
+      declarations: [ BankingComponent, ListComponent ]
     })
     .compileComponents();
 
