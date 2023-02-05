@@ -15,7 +15,9 @@ describe('BankingComponent', () => {
       imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(BankingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

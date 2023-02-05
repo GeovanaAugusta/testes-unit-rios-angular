@@ -38,13 +38,14 @@ describe('ListInvestimentsService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('(U) should be list all investiments', (done) => {
+  it('(U) should list all investiments', (done) => {
     service.list().subscribe((res: Array<InvestimentsI>) => {
       expect(res[0].name).toEqual('Banco 1');
       expect(res[0].value).toEqual(100);
 
       expect(res[4].name).toEqual('Banco 5');
       expect(res[4].value).toEqual(100);
+      // done é uma função que encerra o teste unitário, crucial para subscribe... pra saber quando parar de escutar
       done();
     });
 
