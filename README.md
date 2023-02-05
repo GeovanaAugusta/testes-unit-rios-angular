@@ -10,4 +10,5 @@ O projeto foi feito com o intuito de reforçar e aplicar conceitos sobre testes 
 
 ## Estrutura de código
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Rode `ng generate component nome-do-componente` para gerar um novo componente. Há a possibilidade também de se usar para gerar outro itens, basta usar o ng generate juntamente do que deseja gerar: `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
